@@ -3,6 +3,8 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Neighbourhood Map</title>
+    
+    <!-- Foundation CSS -->
     <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
   </head>
@@ -14,28 +16,38 @@
           <div class="row column">
             
           </div>
+        </div>
+        <div class="off-canvas-content" data-off-canvas-content>
+          <div class="title-bar hide-for-large">
+            <div class="title-bar-left">
+              <button class="menu-icon" type="button" data-open="my-info"></button>
+              <span class="title-bar-title">Neighbourhood Map</span>
+            </div>
           </div>
-            <div class="off-canvas-content" data-off-canvas-content>
-              <div class="title-bar hide-for-large">
-                <div class="title-bar-left">
-                  <button class="menu-icon" type="button" data-open="my-info"></button>
-                  <span class="title-bar-title">Neighbourhood Map</span>
-                </div>
-              </div>
-            <div class="callout primary">
-              <div class="row column">
-                
-              </div>
-            </div>    
+          <div id="map" style="height: 100vh; width: 100%"></div>
         </div>
       </div>
     </div>    
     
+    <!-- Foundation Scripts -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script>
       $(document).foundation();
     </script>
     <script type="text/javascript" src="https://intercom.zurb.com/scripts/zcom.js"></script>
+    
+    <!-- Google Map Scripts -->
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnWFbtoeWataDlbRkv2A1sUULaz5ps360&callback=initMap"
+    async defer></script>
   </body>
 </html>
