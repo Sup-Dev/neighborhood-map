@@ -29,6 +29,9 @@
       </div>
     </div>    
     
+    <!-- App Scripts -->
+    <script src="js/maps.js"></script>
+    
     <!-- Foundation Scripts -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
@@ -42,7 +45,7 @@
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
-          zoom: 15
+          zoom: 14
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
 
@@ -54,10 +57,13 @@
               lng: position.coords.longitude
             };
             
-            console.log(pos);
+            
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
+            
+            // draw markers
+            getPlaces(map, pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
