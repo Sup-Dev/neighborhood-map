@@ -8,11 +8,28 @@ function init() {
   var ViewModel = function() {
     var self = this;
     
-    this.placesList = ko.observable([]);
+    this.filter = ko.observable();
     
+    this.places = ko.observableArray([]);
     placesData.forEach(function(place) {
-      self.placesList().push(new PlacesView(place));
+      self.places().push(new PlacesView(place));
     })
+    
+    
+    this.placesList = ko.computed(function() {
+      
+      
+      if (!self.filter()) {
+        return self.places();
+      } else {
+        return ko.utils.arrayFilter(self.places(), function(place) {
+          console.log(place.name());
+          return place.name().toLowerCase().indexOf(self.filter().toLowerCase()) > -1;
+        })
+      }
+   
+    });  
+    
   }
   
   ko.applyBindings(new ViewModel());

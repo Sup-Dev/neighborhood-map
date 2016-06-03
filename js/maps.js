@@ -1,5 +1,6 @@
 // foursquare API parser
 function getPlaces(map, latlong) {
+  console.log("called");
   var lat = latlong.lat;
   var lng = latlong.lng;
   
