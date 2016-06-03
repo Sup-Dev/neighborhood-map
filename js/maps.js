@@ -30,6 +30,10 @@ function getPlaces(map, latlong) {
         items.push(item);
       };
       
+      // update places variable
+      localStorage.setItem("places", JSON.stringify(items));
+      init();
+    
       drawMarkers(map, items);
     })
     .error(function() {
