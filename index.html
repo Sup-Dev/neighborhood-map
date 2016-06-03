@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/foundation.min.css">   
     
     <script>
-      var m;
+      var m, map;
     </script>
   </head>
   
@@ -37,12 +37,12 @@
             </li>
           </ul>
           <ul class="off-canvas-list" data-bind="foreach: placesList"> 
-            <li><a href="#" data-bind="text: name, click: $parent.triggerMarker.bind($data, $index())"></a></li>
+            <li><a href="#" data-bind="text: name, click: $parent.triggerMarker"></a></li>
           </ul>
         </aside>
         
         <section class="main-section">          
-          <div id="map" style="height: 100vh; width: 100%"></div>
+          <div id="map" style="height: 95vh; width: 100%"></div>
         </section>
         
         <a class="exit-off-canvas"></a>
@@ -69,7 +69,7 @@
     <!-- Google Map Scripts -->
     <script>
       function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 40.6401481, lng: -73.9755475},
           zoom: 14
         });
@@ -92,6 +92,8 @@
             getPlaces(map, pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
+              
+            // goto default location
             var pos = {
               lat: 40.6401481,
               lng: -73.9755475

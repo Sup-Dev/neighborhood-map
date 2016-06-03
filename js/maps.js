@@ -65,30 +65,41 @@ function drawMarkers(map, positions) {
     
     markers.push(marker);
     m = markers;
-  };
-  
-  console.log(markers);
-  // update markers variable
-  /*
-  var seen = [];
-  localStorage.setItem("markers", JSON.stringify(markers, function(key, val) {
-   if (val != null && typeof val == "object") {
-        if (seen.indexOf(val) >= 0) {
-            return;
-        }
-        seen.push(val);
-    }
-    
-    return val;
-}));
-  */
-}
+  };  
+};
 
 // Info Window Binder
 function bindInfoWindow(marker, map, infowindow, description) {
     marker.addListener('click', function() {
         infowindow.setContent(description);
-        infowindow.open(map, this);
+        infowindow.open(map, this);      
+      
+        // Make the marker bounce
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function(){ marker.setAnimation(null); }, 3000);
     });
-}
+};
 
+// Diable all markers
+function disableAllMarkers(markers, map) {
+  var i, len;
+  
+  for (i=0, len=markers.length; i < len; i++) {
+    m[i].setMap(null);
+  }
+};
+
+// Enable all markers
+function enableAllMarkers(markers, map) {
+  var i, len;
+  
+  for (i=0, len=markers.length; i < len; i++) {
+    m[i].setMap(map);
+  }
+};
+
+// Enable marker
+function enableMarker(marker, map, id) {
+  console.log(id);
+  m[id].setMap(map);
+};
