@@ -117,8 +117,13 @@
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
+        
+      // on google maps loading error
+      function mapError() {
+        alert("Google maps couldn't be loaded!!");
+      }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnWFbtoeWataDlbRkv2A1sUULaz5ps360&callback=initMap"
-    async></script>
+    async onerror="mapError()"></script>
   </body>
 </html>

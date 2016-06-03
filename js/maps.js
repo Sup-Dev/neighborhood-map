@@ -39,7 +39,7 @@ function getPlaces(map, latlong) {
       drawMarkers(map, items);
     })
     .error(function() {
-      $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
+      alert("Foursquare Data couldn't be loaded!");
     });
 }
 
@@ -100,6 +100,6 @@ function enableAllMarkers(markers, map) {
 
 // Enable marker
 function enableMarker(marker, map, id) {
-  console.log(id);
+  //console.log(id);
   m[id].setMap(map);
 };

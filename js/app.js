@@ -4,7 +4,7 @@ function init() {
   var PlacesView = function(data) {
     this.name = ko.observable(data.name);
     this.id = ko.observable(data.id);
-  }
+  };
   
   var ViewModel = function() {
     var self = this;
@@ -36,7 +36,7 @@ function init() {
           if (condition) {  
             // draw the required markers
             enableMarker(m, map, place.id());
-          };
+          }
           
           return condition;
         })
