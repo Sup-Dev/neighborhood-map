@@ -20,6 +20,7 @@ function getPlaces(map, latlong) {
     
       for(i=0, len=places.length; i < len; i++) {
         item = {
+          "id": i,
           "name": places[i].name,
           "address": places[i].location.address,
           "pos": {
@@ -30,7 +31,7 @@ function getPlaces(map, latlong) {
         
         items.push(item);
       };
-      
+    
       // update places variable
       localStorage.setItem("places", JSON.stringify(items));
       init();
@@ -44,7 +45,8 @@ function getPlaces(map, latlong) {
 
 // Google Map Markers
 function drawMarkers(map, positions) {
-  var i, len, marker, contentString;  
+  var i, len, marker, contentString;
+  markers = [];  
   var infowindow = new google.maps.InfoWindow({
     content: ""
   });
@@ -60,7 +62,26 @@ function drawMarkers(map, positions) {
     });
     
     bindInfoWindow(marker, map, infowindow, contentString);
+    
+    markers.push(marker);
+    m = markers;
   };
+  
+  console.log(markers);
+  // update markers variable
+  /*
+  var seen = [];
+  localStorage.setItem("markers", JSON.stringify(markers, function(key, val) {
+   if (val != null && typeof val == "object") {
+        if (seen.indexOf(val) >= 0) {
+            return;
+        }
+        seen.push(val);
+    }
+    
+    return val;
+}));
+  */
 }
 
 // Info Window Binder
@@ -70,3 +91,4 @@ function bindInfoWindow(marker, map, infowindow, description) {
         infowindow.open(map, this);
     });
 }
+

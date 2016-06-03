@@ -5,7 +5,11 @@
     <title>Neighbourhood Map</title>
     
     <!-- Foundation CSS -->
-    <link rel="stylesheet" href="css/foundation.min.css">    
+    <link rel="stylesheet" href="css/foundation.min.css">   
+    
+    <script>
+      var m;
+    </script>
   </head>
   
   <body>
@@ -33,7 +37,7 @@
             </li>
           </ul>
           <ul class="off-canvas-list" data-bind="foreach: placesList"> 
-            <li><a href="#" data-bind="text: name"></a></li>
+            <li><a href="#" data-bind="text: name, click: $parent.triggerMarker.bind($data, $index())"></a></li>
           </ul>
         </aside>
         
