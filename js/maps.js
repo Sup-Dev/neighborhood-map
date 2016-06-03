@@ -10,7 +10,7 @@ function getPlaces(map, latlong) {
   url += "&v=20130815&";
   url += "ll=" + lat;
   url += "," + lng;
-  url += "&query=coffee";
+  url += "&query=cafe";
   
   $.getJSON(url, function(data) {
       var places = data.response.venues;
