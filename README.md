@@ -6,7 +6,7 @@
 5. Select any of the cafes listed o highlight the related marker.
 6. To search, simple type and the list will be filtered.
 
-Access the project [here](sup-dev.github.io/neighborhood-map)
+Access the project [here](http://sup-dev.github.io/neighborhood-map)
 
 ### Project Components
 * Foundation 5
