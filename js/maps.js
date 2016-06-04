@@ -27,10 +27,10 @@ function getPlaces(map, latlong) {
             "lat": places[i].location.lat,
             "lng": places[i].location.lng          
           }
-        }
+        };
         
         items.push(item);
-      };
+      }
     
       // update places variable
       localStorage.setItem("places", JSON.stringify(items));
@@ -48,7 +48,7 @@ function drawMarkers(map, positions) {
   var i, len, marker, contentString;
   markers = [];  
   var infowindow = new google.maps.InfoWindow({
-    content: ""
+    content: ''
   });
   
   for (i=0, len=positions.length; i<len; i++) {
@@ -65,8 +65,8 @@ function drawMarkers(map, positions) {
     
     markers.push(marker);
     m = markers;
-  };  
-};
+  }  
+}
 
 // Info Window Binder
 function bindInfoWindow(marker, map, infowindow, description) {
@@ -78,7 +78,7 @@ function bindInfoWindow(marker, map, infowindow, description) {
         marker.setAnimation(google.maps.Animation.BOUNCE);
         setTimeout(function(){ marker.setAnimation(null); }, 3000);
     });
-};
+}
 
 // Diable all markers
 function disableAllMarkers(markers, map) {
@@ -87,7 +87,7 @@ function disableAllMarkers(markers, map) {
   for (i=0, len=markers.length; i < len; i++) {
     m[i].setMap(null);
   }
-};
+}
 
 // Enable all markers
 function enableAllMarkers(markers, map) {
@@ -96,10 +96,10 @@ function enableAllMarkers(markers, map) {
   for (i=0, len=markers.length; i < len; i++) {
     m[i].setMap(map);
   }
-};
+}
 
 // Enable marker
 function enableMarker(marker, map, id) {
   //console.log(id);
   m[id].setMap(map);
-};
+}

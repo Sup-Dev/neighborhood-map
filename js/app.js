@@ -39,7 +39,7 @@ function init() {
           }
           
           return condition;
-        })
+        });
       }   
     });  
     
@@ -48,8 +48,8 @@ function init() {
       var marker = m[obj.id()];
       
       google.maps.event.trigger(marker, 'click');
-    }    
-  }
+    };    
+  };
   
   ko.applyBindings(new ViewModel());
 }
